@@ -94,7 +94,8 @@ class MTProxyFakeTLSClientCodec:
         try:
             self.secret: bytes = bytes.fromhex(f'ee{secret}')
         except:
-            self.secret: bytes = decode_b64(f'7{secret}')
+            data = f'7{secret}'
+            self.secret: bytes = base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))
 
         self.domain: bytes = self.secret[17:]
         self.secret: bytes = self.secret[1:17]
