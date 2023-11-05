@@ -1,10 +1,12 @@
-import logging as log
 import asyncio
 import socket
 
 from . import FakeTLS as Ft
 
 from telethon.network.connection.tcpmtproxy import ConnectionTcpMTProxyRandomizedIntermediate
+
+import logging
+log = logging.getLogger(__name__)
 
 
 class ConnectionTcpMTProxyFakeTLS(ConnectionTcpMTProxyRandomizedIntermediate):

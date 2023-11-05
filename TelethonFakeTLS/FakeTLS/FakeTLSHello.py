@@ -1,13 +1,15 @@
 import base64
 import hashlib
 import hmac
-import logging as log
 import re
 import time
 
 from typing import Union
 
 from . import EncryptionHelper as Eh
+
+import logging
+log = logging.getLogger(__name__)
 
 
 def gen_sha256_digest(key: bytes, msg: bytes) -> bytes:
